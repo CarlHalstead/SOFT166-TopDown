@@ -4,7 +4,7 @@ public class CameraFollow : MonoBehaviour
 {
     [Header("References")]
     [SerializeField]
-    private Transform target;
+    private Transform target = null;
 
     [Header("Configurables")]
     [SerializeField]
