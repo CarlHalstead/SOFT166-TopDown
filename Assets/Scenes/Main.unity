@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 546864864589272591}
-  smoothing: 30
+  smoothing: 40
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -309,11 +309,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 2544474368146682203, guid: 414ac65a94e2bb545a89795900510af1,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3297587450374183316, guid: 414ac65a94e2bb545a89795900510af1,
         type: 3}

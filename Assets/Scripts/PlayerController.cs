@@ -22,6 +22,5 @@ public class PlayerController : MonoBehaviour
         );
 
         rb.velocity = movement * moveSpeed;
-        rb.angularVelocity = 0f;
     }
 }
