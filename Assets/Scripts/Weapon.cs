@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
@@ -9,13 +8,18 @@ public class Weapon : MonoBehaviour
     private GameObject bulletPrefab = null;
 
     [SerializeField]
-    private Transform bulletSpawn = null;
+    private Transform bulletSpawnRight = null;
+
+    [SerializeField]
+    private Transform bulletSpawnLeft = null;
 
     [Header("Configurables")]
     [SerializeField]
     private float fireTime = 0.5f;
 
     private bool isFiring = false;
+
+    private Transform nextBulletSpawn;
 
     private void Update()
     {
@@ -31,9 +35,11 @@ public class Weapon : MonoBehaviour
 
     private void StartFiring()
     {
+        AlternateGun();
+
         isFiring = true;
 
-        Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
+        Instantiate(bulletPrefab, nextBulletSpawn.position, nextBulletSpawn.rotation);
 
         AudioSource audio = GetComponent<AudioSource>();
 
@@ -41,5 +47,16 @@ public class Weapon : MonoBehaviour
             audio.Play();
 
         Invoke(nameof(StopFiring), fireTime);
+    }
+
+    private void AlternateGun()
+    {
+        if (nextBulletSpawn == null)
+            nextBulletSpawn = bulletSpawnRight;
+
+        if (nextBulletSpawn == bulletSpawnRight)
+            nextBulletSpawn = bulletSpawnLeft;
+        else if (nextBulletSpawn == bulletSpawnLeft)
+            nextBulletSpawn = bulletSpawnRight;
     }
 }
