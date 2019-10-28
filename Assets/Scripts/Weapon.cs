@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
@@ -17,20 +16,39 @@ public class Weapon : MonoBehaviour
     [SerializeField]
     private float fireTime = 0.5f;
 
+    [SerializeField]
+    private float fireTimeSpecial = 1f;
+
     private bool isFiring = false;
+    private bool isFiringSpecial = false;
 
     private Transform nextBulletSpawn;
+    private AudioSource weaponAudio = null;
+
+    private void Awake()
+    {
+        weaponAudio = GetComponent<AudioSource>();
+    }
 
     private void Update()
     {
         if (Input.GetButtonDown("Fire1") == true)
             if (isFiring == false)
                 StartFiring();
+
+        if (Input.GetButtonDown("Fire2") == true)
+            if (isFiringSpecial == false)
+                StartFiringSpecial();
     }
 
     private void StopFiring()
     {
         isFiring = false;
+    }
+
+    private void StopFiringSpecial()
+    {
+        isFiringSpecial = false;
     }
 
     private void StartFiring()
@@ -41,12 +59,21 @@ public class Weapon : MonoBehaviour
 
         Instantiate(bulletPrefab, nextBulletSpawn.position, nextBulletSpawn.rotation);
 
-        AudioSource audio = GetComponent<AudioSource>();
-
-        if (audio != null)
-            audio.Play();
+        PlayWeaponAudio();
 
         Invoke(nameof(StopFiring), fireTime);
+    }
+
+    private void StartFiringSpecial()
+    {
+        isFiringSpecial = true;
+
+        Instantiate(bulletPrefab, bulletSpawnRight.position, bulletSpawnRight.rotation);
+        Instantiate(bulletPrefab, bulletSpawnLeft.position, bulletSpawnLeft.rotation);
+
+        PlayWeaponAudio();
+
+        Invoke(nameof(StopFiringSpecial), fireTimeSpecial);
     }
 
     private void AlternateGun()
@@ -58,5 +85,11 @@ public class Weapon : MonoBehaviour
             nextBulletSpawn = bulletSpawnLeft;
         else if (nextBulletSpawn == bulletSpawnLeft)
             nextBulletSpawn = bulletSpawnRight;
+    }
+
+    private void PlayWeaponAudio()
+    {
+        if (weaponAudio != null)
+            weaponAudio.Play();
     }
 }
