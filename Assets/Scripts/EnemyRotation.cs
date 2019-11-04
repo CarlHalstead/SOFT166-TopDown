@@ -28,4 +28,9 @@ public class EnemyRotation : MonoBehaviour
 
         transform.rotation = Quaternion.Lerp(transform.rotation, newRotation, Time.deltaTime * smoothing);
     }
+
+    public void SetTarget(Transform newTarget)
+    {
+        target = newTarget;
+    }
 }

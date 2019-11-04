@@ -22,6 +22,8 @@ public class Weapon : MonoBehaviour
     private bool isFiring = false;
     private bool isFiringSpecial = false;
 
+    public bool IsFiring => isFiring || isFiringSpecial;
+
     private Transform nextBulletSpawn;
     private AudioSource weaponAudio = null;
 
