@@ -5,7 +5,7 @@ public class Bullet : MonoBehaviour
 {
     [Header("Configurables")]
     [SerializeField]
-    private float moveSpeed = 500f;
+    private float moveSpeed = 30f;
 
     [SerializeField]
     private int damage = 1;
@@ -17,9 +17,9 @@ public class Bullet : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    private void Start()
+    private void Update()
     {
-        rb.AddForce(transform.up * moveSpeed);
+        rb.MovePosition(transform.position + (transform.up * (moveSpeed * Time.deltaTime)));
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
