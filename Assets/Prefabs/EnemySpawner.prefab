@@ -77,3 +77,4 @@ MonoBehaviour:
   prefabToSpawn: {fileID: 5812118795462272924, guid: ec7c086ca9f3bd942a91d5ac547551e0,
     type: 3}
   adjustmentAngle: 0
+  spawnAreaRange: 3
