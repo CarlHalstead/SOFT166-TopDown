@@ -27,7 +27,7 @@ public class Bullet : MonoBehaviour
         HealthSystem health = collision.GetComponent<HealthSystem>();
 
         if (health != null)
-            health.TakeDamage(damage);
+            health.ChangeHealth(-damage);
 
         Destroy();
     }

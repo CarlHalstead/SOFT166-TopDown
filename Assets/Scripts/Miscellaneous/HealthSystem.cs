@@ -15,22 +15,35 @@ public class HealthSystem : MonoBehaviour
     private UnityEvent OnDeath = new UnityEvent();
 
     [SerializeField]
+    private UnityEvent OnHealthChanged = new UnityEvent();
+
+    [SerializeField]
     private UnityIntEvent OnDamaged = new UnityIntEvent();
+
+    [SerializeField]
+    private UnityIntEvent OnHealed = new UnityIntEvent();
 
     private void Start()
     {
         health = maxHealth;
     }
 
-    public void TakeDamage(int damage)
+    public void ChangeHealth(int change)
     {
-        health -= damage;
+        health += change;
         health = Mathf.Clamp(health, 0, maxHealth);
 
-        OnDamaged.Invoke(health);
+        OnHealthChanged.Invoke();
+
+        if (change < 0)
+            OnDamaged.Invoke(health);
+
+        if (change > 0)
+            OnHealed.Invoke(health);
 
         if (health == 0)
             OnDeath.Invoke();
+
     }
 
     private void OnValidate()
