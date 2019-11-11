@@ -18,6 +18,9 @@ public class HealthSystem : MonoBehaviour
     private UnityEvent OnHealthChanged = new UnityEvent();
 
     [SerializeField]
+    private UnityFloatEvent OnHealthChangePercentage = new UnityFloatEvent();
+
+    [SerializeField]
     private UnityIntEvent OnDamaged = new UnityIntEvent();
 
     [SerializeField]
@@ -34,6 +37,7 @@ public class HealthSystem : MonoBehaviour
         health = Mathf.Clamp(health, 0, maxHealth);
 
         OnHealthChanged.Invoke();
+        OnHealthChangePercentage.Invoke(health / (float)maxHealth);
 
         if (change < 0)
             OnDamaged.Invoke(health);
@@ -44,6 +48,18 @@ public class HealthSystem : MonoBehaviour
         if (health == 0)
             OnDeath.Invoke();
 
+    }
+
+    [ContextMenu("Take Damage (1)")]
+    public void DEBUG_TakeOneDamage()
+    {
+        ChangeHealth(-1);
+    }
+
+    [ContextMenu("Take Damage (5)")]
+    public void DEBUG_TakeFiveDamage()
+    {
+        ChangeHealth(-1);
     }
 
     private void OnValidate()

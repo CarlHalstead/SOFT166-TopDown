@@ -6,9 +6,16 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private UnityTransformEvent OnEnemySpawned = new UnityTransformEvent();
 
+    private GameObject player = null;
+
     private void Start()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Player");
         OnEnemySpawned.Invoke(player.transform);
+    }
+
+    public void AddScore()
+    {
+        player.GetComponent<PlayerStats>().AddScore(1);
     }
 }
