@@ -2,6 +2,13 @@
 
 public class Weapon : MonoBehaviour
 {
+	/*
+	 * @TODO: In order to better match up the firing animation, a UnityEvent 
+	 * could be put into this class which gets invoked whenever a new bullet is spawned.
+	 * This would make it easy to match up animations if I implement rate of fire increases
+	 * for example.
+	 */ 
+
     [Header("References")]
     [SerializeField]
     private GameObject bulletPrefab = null;

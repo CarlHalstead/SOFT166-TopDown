@@ -14,6 +14,10 @@ public class PlayerAnimation : MonoBehaviour
 
     private void Update()
     {
-        playerAnimator.SetBool("isFiring", playerWeapon.IsFiring);
+		bool isFiring = Input.GetButtonDown("Fire1") ||
+						Input.GetButtonDown("Fire2");
+
+		if (isFiring == true)
+			playerAnimator.SetTrigger("isFiring");
     }
 }
