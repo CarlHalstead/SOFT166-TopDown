@@ -1,14 +1,8 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 public class Weapon : MonoBehaviour
 {
-	/*
-	 * @TODO: In order to better match up the firing animation, a UnityEvent 
-	 * could be put into this class which gets invoked whenever a new bullet is spawned.
-	 * This would make it easy to match up animations if I implement rate of fire increases
-	 * for example.
-	 */ 
-
     [Header("References")]
     [SerializeField]
     private GameObject bulletPrefab = null;
@@ -26,10 +20,12 @@ public class Weapon : MonoBehaviour
     [SerializeField]
     private float fireTimeSpecial = 1f;
 
-    private bool isFiring = false;
-    private bool isFiringSpecial = false;
+	[Header("Events")]
+	[SerializeField]
+	private UnityEvent OnBulletFired = new UnityEvent();
 
-    public bool IsFiring => isFiring || isFiringSpecial;
+	private bool isFiring = false;
+	private bool isFiringSpecial = false;
 
     private Transform nextBulletSpawn;
     private AudioSource weaponAudio = null;
@@ -71,6 +67,8 @@ public class Weapon : MonoBehaviour
         PlayWeaponAudio();
 
         Invoke(nameof(StopFiring), fireTime);
+
+		OnBulletFired.Invoke();
     }
 
     private void StartFiringSpecial()
