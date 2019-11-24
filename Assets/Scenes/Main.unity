@@ -1221,6 +1221,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 696321453441260772, guid: 414ac65a94e2bb545a89795900510af1,
         type: 3}
+      propertyPath: OnHealthChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 696321453441260772, guid: 414ac65a94e2bb545a89795900510af1,
+        type: 3}
       propertyPath: OnHealthChangePercentage.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 37846829}
@@ -1253,6 +1258,31 @@ PrefabInstance:
         type: 3}
       propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: End
+      objectReference: {fileID: 0}
+    - target: {fileID: 696321453441260772, guid: 414ac65a94e2bb545a89795900510af1,
+        type: 3}
+      propertyPath: OnHealthChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 696321453441260772, guid: 414ac65a94e2bb545a89795900510af1,
+        type: 3}
+      propertyPath: OnHealthChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 696321453441260772, guid: 414ac65a94e2bb545a89795900510af1,
+        type: 3}
+      propertyPath: OnHealthChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 37846829}
+    - target: {fileID: 696321453441260772, guid: 414ac65a94e2bb545a89795900510af1,
+        type: 3}
+      propertyPath: OnHealthChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpdateSliderValue
+      objectReference: {fileID: 0}
+    - target: {fileID: 696321453441260772, guid: 414ac65a94e2bb545a89795900510af1,
+        type: 3}
+      propertyPath: OnHealthChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4643487242920898224, guid: 414ac65a94e2bb545a89795900510af1,
         type: 3}

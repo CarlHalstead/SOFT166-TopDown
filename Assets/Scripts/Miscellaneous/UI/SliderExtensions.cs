@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class SliderExtensions : MonoBehaviour
@@ -16,8 +14,8 @@ public class SliderExtensions : MonoBehaviour
     /// Percentage on a scale of 0 through to 1.
     /// </summary>
     /// <param name="percentage"></param>
-    public void UpdateSliderValue(float percentage)
+    public void UpdateSliderValue(OnStatChangedEventArgs newStat)
     {
-        currentSlider.value = percentage;
+		currentSlider.value = newStat.CurrentAsPercentage;
     }
 }
