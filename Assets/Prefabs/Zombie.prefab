@@ -78,6 +78,7 @@ GameObject:
   - component: {fileID: 365885845213606470}
   - component: {fileID: 736199700249103334}
   - component: {fileID: 1368756034}
+  - component: {fileID: -2747322691944293448}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Untagged
@@ -261,9 +262,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 5812118795462272924}
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: -2747322691944293448}
+        m_MethodName: DestroyObject
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -277,12 +278,7 @@ MonoBehaviour:
   OnHealthChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  OnHealthChangePercentage:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityFloatEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    m_TypeName: UnityStatChangedEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   OnDamaged:
     m_PersistentCalls:
@@ -321,3 +317,15 @@ MonoBehaviour:
     type: 3}
   adjustmentAngle: -90
   spawnAreaRange: 0.5
+--- !u!114 &-2747322691944293448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5812118795462272924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f3b2f4feffa04d459c6bda774e9705b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
