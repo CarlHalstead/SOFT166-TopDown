@@ -1069,16 +1069,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2420464884457412010, guid: c175e963ee33cab4f94b34e881681b07,
-        type: 3}
-      propertyPath: m_SortingLayerID
-      value: 2098468863
-      objectReference: {fileID: 0}
-    - target: {fileID: 2420464884457412010, guid: c175e963ee33cab4f94b34e881681b07,
-        type: 3}
-      propertyPath: m_SortingLayer
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c175e963ee33cab4f94b34e881681b07, type: 3}
 --- !u!1 &1692787136
@@ -1558,21 +1548,6 @@ PrefabInstance:
       propertyPath: OnScoreAdded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2142523368}
-    - target: {fileID: 7678298143541439259, guid: 414ac65a94e2bb545a89795900510af1,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7678298143541439259, guid: 414ac65a94e2bb545a89795900510af1,
-        type: 3}
-      propertyPath: m_SortingLayerID
-      value: 145433193
-      objectReference: {fileID: 0}
-    - target: {fileID: 7678298143541439259, guid: 414ac65a94e2bb545a89795900510af1,
-        type: 3}
-      propertyPath: m_SortingLayer
-      value: -1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 414ac65a94e2bb545a89795900510af1, type: 3}
 --- !u!4 &546864864589272591 stripped
