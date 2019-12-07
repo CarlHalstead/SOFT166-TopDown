@@ -13,11 +13,14 @@ public class Spawner : MonoBehaviour
     [SerializeField]
     private float spawnAreaRange = 3f;
 
+	[SerializeField]
+	private Vector3 spawnAreaOffset = Vector3.zero;
+
     public void Spawn()
     {
         Vector3 randomPosition = transform.position + (Vector3)(Random.insideUnitCircle * spawnAreaRange);
 
-        Spawn(randomPosition);
+        Spawn(randomPosition + spawnAreaOffset);
     }
 
     private void Spawn(Vector3 position)
@@ -32,6 +35,6 @@ public class Spawner : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(transform.position, spawnAreaRange);
+        Gizmos.DrawWireSphere(transform.position + spawnAreaOffset, spawnAreaRange);
     }
 }
