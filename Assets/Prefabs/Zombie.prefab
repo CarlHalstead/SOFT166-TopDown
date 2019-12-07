@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1223534756}
   - component: {fileID: 1223534757}
   - component: {fileID: 794244131395216799}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: Damage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,7 +47,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.4}
   serializedVersion: 2
-  m_Radius: 0.8
+  m_Radius: 0.7
 --- !u!114 &794244131395216799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,6 +72,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5812118795462272926}
   - component: {fileID: 5812118795462272925}
+  - component: {fileID: 534273077071886713}
   - component: {fileID: 700080121}
   - component: {fileID: 3130784690688573918}
   - component: {fileID: 6169724151319632269}
@@ -79,7 +80,7 @@ GameObject:
   - component: {fileID: 736199700249103334}
   - component: {fileID: 1368756034}
   - component: {fileID: -2747322691944293448}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Zombie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136,9 +137,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 2062814203
-  m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 673f94e398f80dc48be03a3b8be75abe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -150,6 +151,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &534273077071886713
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5812118795462272924}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 4
 --- !u!58 &700080121
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -316,7 +338,8 @@ MonoBehaviour:
   prefabToSpawn: {fileID: 5905501501730194014, guid: 82157431b984e66459359abc4b695e13,
     type: 3}
   adjustmentAngle: -90
-  spawnAreaRange: 0.5
+  spawnAreaRange: 0.7
+  spawnAreaOffset: {x: 0, y: -0.5, z: 0}
 --- !u!114 &-2747322691944293448
 MonoBehaviour:
   m_ObjectHideFlags: 0

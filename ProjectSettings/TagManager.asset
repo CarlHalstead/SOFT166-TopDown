@@ -14,10 +14,10 @@ TagManager:
   - 
   - 
   - Player Damage
-  - Enemy Damage
-  - Player Health
   - Enemy Health
-  - 
+  - Player Health
+  - Enemy Damage
+  - Obstacles
   - 
   - 
   - 
@@ -41,21 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Ground
-    uniqueID: 836164423
-    locked: 0
   - name: Player
-    uniqueID: 2770948493
+    uniqueID: 145433193
     locked: 0
-  - name: Enemies
-    uniqueID: 2062814203
-    locked: 0
-  - name: FX
-    uniqueID: 1483425049
-    locked: 0
-  - name: Bullets
-    uniqueID: 3843340397
-    locked: 0
-  - name: Foreground
-    uniqueID: 3609661223
+  - name: Obstacles
+    uniqueID: 2098468863
     locked: 0
