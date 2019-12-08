@@ -10,6 +10,9 @@ public class HealthSystem : MonoBehaviour
     [SerializeField]
     private int health = 10;
 
+	[SerializeField]
+	private bool resetHealthOnEnable = true;
+
     [Header("Events")]
     [SerializeField]
     private UnityEvent OnDeath = new UnityEvent();
@@ -28,7 +31,13 @@ public class HealthSystem : MonoBehaviour
         health = maxHealth;
     }
 
-    public void ChangeHealth(int change)
+	private void OnEnable()
+	{
+		if (resetHealthOnEnable == true)
+			health = maxHealth;
+	}
+
+	public void ChangeHealth(int change)
     {
         health += change;
         health = Mathf.Clamp(health, 0, maxHealth);

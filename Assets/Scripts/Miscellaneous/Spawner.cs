@@ -2,11 +2,10 @@
 
 public class Spawner : MonoBehaviour
 {
-    [Header("References")]
-    [SerializeField]
-    private GameObject prefabToSpawn = null;
+	[Header("Configurables")]
+	[SerializeField]
+	private string poolObjectToSpawn = string.Empty;
 
-    [Header("Configurables")]
     [SerializeField]
     private float adjustmentAngle = 0f;
 
@@ -30,7 +29,10 @@ public class Spawner : MonoBehaviour
 
         Quaternion rotation = Quaternion.Euler(rotationDegrees);
 
-        Instantiate(prefabToSpawn, position, rotation);
+		GameObject newObj = PoolManager.Instance.Get(poolObjectToSpawn);
+		newObj.transform.position = position;
+		newObj.transform.rotation = rotation;
+		newObj.SetActive(true);
     }
 
     private void OnDrawGizmos()

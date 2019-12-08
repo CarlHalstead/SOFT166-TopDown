@@ -47,5 +47,15 @@ MonoBehaviour:
   - poolName: Bullets
     poolObject: {fileID: 2289773250138816888, guid: b830959c4db3e1c45bea034a89d17c49,
       type: 3}
-    poolStartAmount: 1
+    poolStartAmount: 5
+    poolAvailableObjects: []
+  - poolName: Zombies
+    poolObject: {fileID: 5812118795462272924, guid: ec7c086ca9f3bd942a91d5ac547551e0,
+      type: 3}
+    poolStartAmount: 10
+    poolAvailableObjects: []
+  - poolName: Explosions
+    poolObject: {fileID: 5905501501730194014, guid: 82157431b984e66459359abc4b695e13,
+      type: 3}
+    poolStartAmount: 10
     poolAvailableObjects: []

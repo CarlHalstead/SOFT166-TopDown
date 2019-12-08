@@ -284,9 +284,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: -2747322691944293448}
-        m_MethodName: DestroyObject
-        m_Mode: 1
+      - m_Target: {fileID: 5812118795462272924}
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -335,8 +335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f17535eec0d7ff54e96c03c2be58be6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabToSpawn: {fileID: 5905501501730194014, guid: 82157431b984e66459359abc4b695e13,
-    type: 3}
+  poolObjectToSpawn: Explosions
   adjustmentAngle: -90
   spawnAreaRange: 0.7
   spawnAreaOffset: {x: 0, y: -0.5, z: 0}

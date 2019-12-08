@@ -224,6 +224,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   health: 10
+  resetHealthOnEnable: 1
   OnDeath:
     m_PersistentCalls:
       m_Calls:
