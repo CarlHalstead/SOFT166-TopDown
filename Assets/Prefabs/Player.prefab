@@ -190,8 +190,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f943f0486ff086e4da1ec08644519a4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 2289773250138816888, guid: b830959c4db3e1c45bea034a89d17c49,
-    type: 3}
   bulletSpawnRight: {fileID: 1848403508}
   bulletSpawnLeft: {fileID: 221013824}
   fireTime: 0.5

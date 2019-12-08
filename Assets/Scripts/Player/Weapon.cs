@@ -5,9 +5,6 @@ public class Weapon : MonoBehaviour
 {
     [Header("References")]
     [SerializeField]
-    private GameObject bulletPrefab = null;
-
-    [SerializeField]
     private Transform bulletSpawnRight = null;
 
     [SerializeField]
@@ -62,7 +59,10 @@ public class Weapon : MonoBehaviour
 
         isFiring = true;
 
-        Instantiate(bulletPrefab, nextBulletSpawn.position, nextBulletSpawn.rotation);
+		GameObject bullet = PoolManager.Instance.Get("Bullets");
+		bullet.transform.position = nextBulletSpawn.position;
+		bullet.transform.rotation = nextBulletSpawn.rotation;
+		bullet.SetActive(true);
 
         PlayWeaponAudio();
 
@@ -75,8 +75,15 @@ public class Weapon : MonoBehaviour
     {
         isFiringSpecial = true;
 
-        Instantiate(bulletPrefab, bulletSpawnRight.position, bulletSpawnRight.rotation);
-        Instantiate(bulletPrefab, bulletSpawnLeft.position, bulletSpawnLeft.rotation);
+		GameObject bulletLeft = PoolManager.Instance.Get("Bullets");
+		bulletLeft.transform.position = bulletSpawnLeft.position;
+		bulletLeft.transform.rotation = bulletSpawnLeft.rotation;
+		bulletLeft.SetActive(true);
+
+		GameObject bulletRight = PoolManager.Instance.Get("Bullets");
+		bulletRight.transform.position = bulletSpawnRight.position;
+		bulletRight.transform.rotation = bulletSpawnRight.rotation;
+		bulletRight.SetActive(true);
 
         PlayWeaponAudio();
 
