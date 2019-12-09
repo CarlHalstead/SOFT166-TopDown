@@ -6,27 +6,41 @@ public class PlayerUpgrades : MonoBehaviour
 	[SerializeField]
 	private GameObject canvasUpgradeShop = null;
 
-    private void Update()
+	[Header("Audio")]
+	[SerializeField]
+	private AudioSource interfaceAudio = null;
+
+	private void Awake()
+	{
+		if (interfaceAudio == null)
+			Debug.LogError("PlayerUpgrade::Awake -- No AudioSource! Ignore if intentional");
+	}
+
+	private void Update()
     {
 		if (Input.GetButtonDown("TriggerMenu") == true)
 		{
-			canvasUpgradeShop.SetActive(!canvasUpgradeShop.activeInHierarchy);
-
 			if (canvasUpgradeShop.activeInHierarchy == true)
-				Time.timeScale = 0f;
+				CloseShop();
 			else
-				Time.timeScale = 1f;
+				OpenShop();
 		}
     }
 	public void OpenShop()
 	{
 		canvasUpgradeShop.SetActive(true);
 		Time.timeScale = 0f;
+
+		if(interfaceAudio != null)
+			interfaceAudio.Play();
 	}
 
 	public void CloseShop()
 	{
 		canvasUpgradeShop.SetActive(false);
 		Time.timeScale = 1f;
+
+		if (interfaceAudio != null)
+			interfaceAudio.Play();
 	}	
 }
