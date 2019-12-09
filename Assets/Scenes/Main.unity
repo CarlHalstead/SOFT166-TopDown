@@ -2453,25 +2453,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1485253125}
   m_CullTransparentMesh: 0
---- !u!1 &1503575857 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2544474368146682203, guid: 414ac65a94e2bb545a89795900510af1,
+--- !u!114 &1503575858 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1503575858, guid: 414ac65a94e2bb545a89795900510af1,
     type: 3}
   m_PrefabInstance: {fileID: 546864864589272587}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1503575858
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1503575857}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2de2552b281a6244d9429dd8798e96cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvasUpgradeShop: {fileID: 738494874}
 --- !u!1001 &1549769279
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3596,6 +3589,10 @@ PrefabInstance:
       propertyPath: OnScoreAdded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2142523368}
+    - target: {fileID: 1503575858, guid: 414ac65a94e2bb545a89795900510af1, type: 3}
+      propertyPath: canvasUpgradeShop
+      value: 
+      objectReference: {fileID: 738494874}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 414ac65a94e2bb545a89795900510af1, type: 3}
 --- !u!4 &546864864589272591 stripped
@@ -3615,11 +3612,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: EnemySpawner
-      objectReference: {fileID: 0}
-    - target: {fileID: 965410567380310284, guid: 2c319dad96360a3489c8a0fd8c30e576,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 965410567380310275, guid: 2c319dad96360a3489c8a0fd8c30e576,
         type: 3}

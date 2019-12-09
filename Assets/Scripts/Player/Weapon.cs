@@ -10,6 +10,10 @@ public class Weapon : MonoBehaviour
     [SerializeField]
     private Transform bulletSpawnLeft = null;
 
+	[Header("Audio")]
+	[SerializeField]
+	private AudioSource weaponAudio = null;
+
 	[Header("Configurables")]
 	[SerializeField]
 	private bool isAutomatic = false;
@@ -28,13 +32,13 @@ public class Weapon : MonoBehaviour
 	private bool isFiringSpecial = false;
 
     private Transform nextBulletSpawn;
-    private AudioSource weaponAudio = null;
 
 	private const float SECONDS_PER_MINUTE = 60f;
 
 	private void Awake()
     {
-        weaponAudio = GetComponent<AudioSource>();
+		if (weaponAudio == null)
+			Debug.LogError("Weapon::Awake -- No AudioSource! Ignore if intentional");
     }
 
     private void Update()
