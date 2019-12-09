@@ -16,6 +16,7 @@ public class SliderExtensions : MonoBehaviour
     /// <param name="percentage"></param>
     public void UpdateSliderValue(OnStatChangedEventArgs newStat)
     {
-		currentSlider.value = newStat.CurrentAsPercentage;
+		if(currentSlider != null)
+			currentSlider.value = newStat.CurrentAsPercentage;
     }
 }
