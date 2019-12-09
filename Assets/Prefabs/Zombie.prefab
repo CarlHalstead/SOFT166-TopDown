@@ -76,12 +76,12 @@ GameObject:
   - component: {fileID: 700080121}
   - component: {fileID: 3130784690688573918}
   - component: {fileID: 736199700249103334}
+  - component: {fileID: 193196378679049850}
+  - component: {fileID: 1033294826856009502}
+  - component: {fileID: 193196378679049849}
+  - component: {fileID: 193196378679049848}
   - component: {fileID: 1368756034}
   - component: {fileID: -2747322691944293448}
-  - component: {fileID: 1033294826856009502}
-  - component: {fileID: 193196378679049848}
-  - component: {fileID: 193196378679049849}
-  - component: {fileID: 193196378679049850}
   m_Layer: 9
   m_Name: Zombie
   m_TagString: Untagged
@@ -286,7 +286,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityIntEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
---- !u!114 &1368756034
+--- !u!114 &193196378679049850
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -295,25 +295,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5812118795462272924}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f17535eec0d7ff54e96c03c2be58be6a, type: 3}
+  m_Script: {fileID: 11500000, guid: f08a087ec7c759846a9cc41d15f05b7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolObjectToSpawn: Explosions
-  adjustmentAngle: -90
-  spawnAreaRange: 0.7
-  spawnAreaOffset: {x: 0, y: -0.5, z: 0}
---- !u!114 &-2747322691944293448
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5812118795462272924}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f3b2f4feffa04d459c6bda774e9705b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  timeBetweenPathingUpdates: 0.2
 --- !u!114 &1033294826856009502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -342,6 +328,29 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
+--- !u!114 &193196378679049849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5812118795462272924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 847a14d4dc9cc43679ab34fc78e0182f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 2
+  repathRate: 0.2
+  canSearch: 1
+  canMove: 1
+  speed: 3
+  orientation: 1
+  enableRotation: 1
+  rotationSpeed: 10
+  interpolatePathSwitches: 1
+  switchPathInterpolationSpeed: 5
+  targetCompatibility: {fileID: 0}
 --- !u!114 &193196378679049848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -364,7 +373,7 @@ MonoBehaviour:
   bezierTangentLength: 0.4
   offset: 0.2
   factor: 0.1
---- !u!114 &193196378679049849
+--- !u!114 &1368756034
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -373,21 +382,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 5812118795462272924}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 847a14d4dc9cc43679ab34fc78e0182f, type: 3}
+  m_Script: {fileID: 11500000, guid: f17535eec0d7ff54e96c03c2be58be6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  version: 2
-  repathRate: 0.5
-  canSearch: 1
-  canMove: 1
-  speed: 3
-  orientation: 1
-  enableRotation: 1
-  rotationSpeed: 10
-  interpolatePathSwitches: 1
-  switchPathInterpolationSpeed: 5
-  targetCompatibility: {fileID: 0}
---- !u!114 &193196378679049850
+  poolObjectToSpawn: Explosions
+  adjustmentAngle: -90
+  spawnAreaRange: 0.7
+  spawnAreaOffset: {x: 0, y: -0.5, z: 0}
+--- !u!114 &-2747322691944293448
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -396,6 +398,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 5812118795462272924}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f08a087ec7c759846a9cc41d15f05b7a, type: 3}
+  m_Script: {fileID: 11500000, guid: 5f3b2f4feffa04d459c6bda774e9705b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
