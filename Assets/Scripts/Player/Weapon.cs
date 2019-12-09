@@ -10,12 +10,12 @@ public class Weapon : MonoBehaviour
     [SerializeField]
     private Transform bulletSpawnLeft = null;
 
-    [Header("Configurables")]
-    [SerializeField]
-    private float fireTime = 0.5f;
+	[Header("Configurables")]
+	[SerializeField]
+	private int roundsPerMinute = 120;
 
-    [SerializeField]
-    private float fireTimeSpecial = 1f;
+	[SerializeField]
+	private int roundsPerMinuteSpecial = 60;
 
 	[Header("Events")]
 	[SerializeField]
@@ -27,7 +27,9 @@ public class Weapon : MonoBehaviour
     private Transform nextBulletSpawn;
     private AudioSource weaponAudio = null;
 
-    private void Awake()
+	private const float SECONDS_PER_MINUTE = 60f;
+
+	private void Awake()
     {
         weaponAudio = GetComponent<AudioSource>();
     }
@@ -66,7 +68,7 @@ public class Weapon : MonoBehaviour
 
         PlayWeaponAudio();
 
-        Invoke(nameof(StopFiring), fireTime);
+        Invoke(nameof(StopFiring), SECONDS_PER_MINUTE / roundsPerMinute);
 
 		OnBulletFired.Invoke();
     }
@@ -87,7 +89,7 @@ public class Weapon : MonoBehaviour
 
         PlayWeaponAudio();
 
-        Invoke(nameof(StopFiringSpecial), fireTimeSpecial);
+        Invoke(nameof(StopFiringSpecial), SECONDS_PER_MINUTE / roundsPerMinuteSpecial);
     }
 
     private void AlternateGun()
