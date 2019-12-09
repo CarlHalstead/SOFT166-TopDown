@@ -12,6 +12,9 @@ public class Weapon : MonoBehaviour
 
 	[Header("Configurables")]
 	[SerializeField]
+	private bool isAutomatic = false;
+
+	[SerializeField]
 	private int roundsPerMinute = 120;
 
 	[SerializeField]
@@ -36,13 +39,26 @@ public class Weapon : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Fire1") == true)
-            if (isFiring == false)
-                StartFiring();
+		if (isAutomatic == false)
+		{
+			if (Input.GetButtonDown("Fire1") == true)
+				if (isFiring == false)
+					StartFiring();
 
-        if (Input.GetButtonDown("Fire2") == true)
-            if (isFiringSpecial == false)
-                StartFiringSpecial();
+			if (Input.GetButtonDown("Fire2") == true)
+				if (isFiringSpecial == false)
+					StartFiringSpecial();
+		}
+		else
+		{
+			if (Input.GetButton("Fire1") == true)
+				if (isFiring == false)
+					StartFiring();
+
+			if (Input.GetButton("Fire2") == true)
+				if (isFiringSpecial == false)
+					StartFiringSpecial();
+		}
     }
 
     private void StopFiring()
