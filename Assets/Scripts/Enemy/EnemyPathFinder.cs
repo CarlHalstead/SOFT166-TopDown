@@ -7,46 +7,26 @@ public class EnemyPathFinder : MonoBehaviour
 	[SerializeField]
 	private Transform target;
 
-	[Header("Configurables")]
-	[SerializeField]
-	private float timeBetweenPathingUpdates = 0.5f;
-
 	private IAstarAI ai;
 
-	private float timerPathing;
 
 	private void Awake()
 	{
 		ai = GetComponent<IAstarAI>();
 	}
 
-	private void Start()
-	{
-		GetPath();
-	}
-
+	/// <summary>
+	/// The reason we do not call SearchPath() manually here is because 
+	/// that is already handled by AILerp and its Repeat Rate value.
+	/// There is no reason to recalculate the path every single frame 
+	/// and the effects of which will mostly go unnoticed compared
+	/// to just calling it single digit times per second.
+	/// </summary>
 	private void Update()
 	{
-		timerPathing += Time.deltaTime;
-
-		if (timerPathing > timeBetweenPathingUpdates)
-		{
-			timerPathing -= timeBetweenPathingUpdates;
-
-			GetPath();
-		}
-	}
-
-	private void GetPath()
-	{
-		if (target != null)
-		{
-			if (ai != null)
-			{
+		if(target != null)
+			if(ai != null)
 				ai.destination = target.position;
-				ai.SearchPath();
-			}
-		}
 	}
 
 	public void SetTarget(Transform newTarget)
