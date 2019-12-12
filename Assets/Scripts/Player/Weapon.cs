@@ -3,12 +3,12 @@ using UnityEngine.Events;
 
 public class Weapon : MonoBehaviour
 {
-    [Header("References")]
-    [SerializeField]
-    private Transform bulletSpawnRight = null;
+	[Header("References")]
+	[SerializeField]
+	private Transform bulletSpawnRight = null;
 
-    [SerializeField]
-    private Transform bulletSpawnLeft = null;
+	[SerializeField]
+	private Transform bulletSpawnLeft = null;
 
 	[Header("Audio")]
 	[SerializeField]
@@ -31,18 +31,18 @@ public class Weapon : MonoBehaviour
 	private bool isFiring = false;
 	private bool isFiringSpecial = false;
 
-    private Transform nextBulletSpawn;
+	private Transform nextBulletSpawn;
 
 	private const float SECONDS_PER_MINUTE = 60f;
 
 	private void Awake()
-    {
+	{
 		if (weaponAudio == null)
 			Debug.LogError("Weapon::Awake -- No AudioSource! Ignore if intentional");
-    }
+	}
 
-    private void Update()
-    {
+	private void Update()
+	{
 		if (isAutomatic == false)
 		{
 			if (Input.GetButtonDown("Fire1") == true)
@@ -63,39 +63,39 @@ public class Weapon : MonoBehaviour
 				if (isFiringSpecial == false)
 					StartFiringSpecial();
 		}
-    }
+	}
 
-    private void StopFiring()
-    {
-        isFiring = false;
-    }
+	private void StopFiring()
+	{
+		isFiring = false;
+	}
 
-    private void StopFiringSpecial()
-    {
-        isFiringSpecial = false;
-    }
+	private void StopFiringSpecial()
+	{
+		isFiringSpecial = false;
+	}
 
-    private void StartFiring()
-    {
-        AlternateGun();
+	private void StartFiring()
+	{
+		AlternateGun();
 
-        isFiring = true;
+		isFiring = true;
 
 		GameObject bullet = PoolManager.Instance.Get("Bullets");
 		bullet.transform.position = nextBulletSpawn.position;
 		bullet.transform.rotation = nextBulletSpawn.rotation;
 		bullet.SetActive(true);
 
-        PlayWeaponAudio();
+		PlayWeaponAudio();
 
-        Invoke(nameof(StopFiring), SECONDS_PER_MINUTE / roundsPerMinute);
+		Invoke(nameof(StopFiring), SECONDS_PER_MINUTE / roundsPerMinute);
 
 		OnBulletFired.Invoke();
-    }
+	}
 
-    private void StartFiringSpecial()
-    {
-        isFiringSpecial = true;
+	private void StartFiringSpecial()
+	{
+		isFiringSpecial = true;
 
 		GameObject bulletLeft = PoolManager.Instance.Get("Bullets");
 		bulletLeft.transform.position = bulletSpawnLeft.position;
@@ -107,25 +107,25 @@ public class Weapon : MonoBehaviour
 		bulletRight.transform.rotation = bulletSpawnRight.rotation;
 		bulletRight.SetActive(true);
 
-        PlayWeaponAudio();
+		PlayWeaponAudio();
 
-        Invoke(nameof(StopFiringSpecial), SECONDS_PER_MINUTE / roundsPerMinuteSpecial);
-    }
+		Invoke(nameof(StopFiringSpecial), SECONDS_PER_MINUTE / roundsPerMinuteSpecial);
+	}
 
-    private void AlternateGun()
-    {
-        if (nextBulletSpawn == null)
-            nextBulletSpawn = bulletSpawnRight;
+	private void AlternateGun()
+	{
+		if (nextBulletSpawn == null)
+			nextBulletSpawn = bulletSpawnRight;
 
-        if (nextBulletSpawn == bulletSpawnRight)
-            nextBulletSpawn = bulletSpawnLeft;
-        else if (nextBulletSpawn == bulletSpawnLeft)
-            nextBulletSpawn = bulletSpawnRight;
-    }
+		if (nextBulletSpawn == bulletSpawnRight)
+			nextBulletSpawn = bulletSpawnLeft;
+		else if (nextBulletSpawn == bulletSpawnLeft)
+			nextBulletSpawn = bulletSpawnRight;
+	}
 
-    private void PlayWeaponAudio()
-    {
-        if (weaponAudio != null)
-            weaponAudio.Play();
-    }
+	private void PlayWeaponAudio()
+	{
+		if (weaponAudio != null)
+			weaponAudio.Play();
+	}
 }
