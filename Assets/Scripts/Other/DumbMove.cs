@@ -11,7 +11,12 @@ public class DumbMove : MonoBehaviour
 	private Vector3 destinationOffset = new Vector3();
 
 	[SerializeField]
-	private float moveSpeed = 10f;
+	private float moveSpeedMinimum = 5f;
+
+	[SerializeField]
+	private float moveSpeedMaximum = 10f;
+
+	private float moveSpeed = 0f;
 
 	private Rigidbody2D rb = null;
 
@@ -22,8 +27,10 @@ public class DumbMove : MonoBehaviour
 		rb = GetComponent<Rigidbody2D>();   
     }
 
-	private void Start()
+	private void OnEnable()
 	{
+		moveSpeed = Random.Range(moveSpeedMinimum, moveSpeedMaximum);
+
 		targetDestination = transform.position + destinationOffset;
 	}
 
@@ -31,7 +38,7 @@ public class DumbMove : MonoBehaviour
     {
 		rb.MovePosition(transform.position + (Vector3.right * (moveSpeed * Time.deltaTime)));
 
-		if (Vector3.Distance(transform.position, targetDestination) < 0.2f)
+		if (Vector3.Distance(transform.position, targetDestination) < 0.25f)
 			gameObject.SetActive(false);
 	}
 }
